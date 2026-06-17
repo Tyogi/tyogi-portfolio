@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yogi Sainadh Thatikonda — Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #16161f;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.16);
+      --text: #f0f0f5;
+      --text-muted: #8888a0;
+      --text-dim: #55556a;
+      --accent: #6c63ff;
+      --accent2: #00d4aa;
+      --accent-glow: rgba(108, 99, 255, 0.15);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(10, 10, 15, 0.8);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.85rem !important;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.85;
+      color: #fff !important;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 3rem 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(108, 99, 255, 0.1);
+      border: 1px solid rgba(108, 99, 255, 0.3);
+      color: #a09cff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tag .dot {
+      width: 6px;
+      height: 6px;
+      background: #6c63ff;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+      }
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 .line-muted {
+      color: var(--text-muted);
+    }
+
+    .hero h1 .accent {
+      color: var(--accent);
+    }
+
+    .hero h1 .accent2 {
+      color: var(--accent2);
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border-hover);
+      color: var(--text);
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    /* Hero card */
+    .hero-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: rgba(108, 99, 255, 0.12);
+      border-radius: 50%;
+      filter: blur(40px);
+    }
+
+    .avatar-ring {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 auto 1.5rem;
+      padding: 3px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(108, 99, 255, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .avatar-ring:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(108, 99, 255, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+
+    .avatar-ring img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .hero-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      text-align: center;
+    }
+
+    .hero-card .role {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .hero-card .tech-chips {
+      justify-content: center;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .tech-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      background: rgba(108, 99, 255, 0.1);
+      border: 1px solid rgba(108, 99, 255, 0.2);
+      color: #a09cff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .chip.green {
+      background: rgba(0, 212, 170, 0.08);
+      border-color: rgba(0, 212, 170, 0.2);
+      color: #4dd9bc;
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+
+    /* EXPERIENCE */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .exp-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem 2rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      transition: border-color 0.2s;
+    }
+
+    .exp-card:hover {
+      border-color: var(--border-hover);
+    }
+
+    .exp-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .exp-icon.amazon {
+      background: rgba(255, 153, 0, 0.1);
+    }
+
+    .exp-icon.tcs {
+      background: rgba(108, 99, 255, 0.12);
+    }
+
+    .exp-icon.atom {
+      background: rgba(0, 212, 170, 0.1);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .exp-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .exp-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.7rem;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .exp-company {
+      font-size: 0.875rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-desc {
+      color: var(--text-muted);
+      font-size: 0.925rem;
+      line-height: 1.75;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 1rem;
+    }
+
+    .exp-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 5px;
+      letter-spacing: 0.02em;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    /* HIGHLIGHTS */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .highlight-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
+    }
+
+    .highlight-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .highlight-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .highlight-num.teal {
+      color: var(--accent2);
+    }
+
+    .highlight-card h4 {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .highlight-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-group {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .skill-group h4 {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-pill {
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.35rem 0.8rem;
+      border-radius: 8px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: border-color 0.2s;
+    }
+
+    .skill-pill:hover {
+      border-color: var(--accent);
+    }
+
+    .exp-bullets {
+      list-style: none;
+      margin-top: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .exp-bullets li {
+      color: var(--text-muted);
+      font-size: 0.925rem;
+      line-height: 1.7;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .exp-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+      top: 0.1em;
+    }
+
+    .exp-bullets strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      border-color: rgba(108, 99, 255, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .project-card:hover::after {
+      opacity: 1;
+    }
+
+    .project-card.purple::after {
+      background: rgba(108, 99, 255, 0.08);
+    }
+
+    .project-card.teal::after {
+      background: rgba(0, 212, 170, 0.08);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .project-emoji {
+      font-size: 2rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .project-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .project-header .proj-type {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-top: 0.2rem;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .project-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .project-bullets li {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      line-height: 1.65;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .project-bullets li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+      font-weight: 700;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stack-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 5px;
+      background: rgba(108, 99, 255, 0.1);
+      border: 1px solid rgba(108, 99, 255, 0.2);
+      color: #a09cff;
+    }
+
+    .stack-tag.teal {
+      background: rgba(0, 212, 170, 0.08);
+      border-color: rgba(0, 212, 170, 0.2);
+      color: #4dd9bc;
+    }
+
+    /* RESUME */
+    .resume-wrap {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .resume-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .resume-header h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .resume-header p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .resume-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .resume-body {
+      padding: 2.5rem;
+    }
+
+    .resume-section {
+      margin-bottom: 2rem;
+    }
+
+    .resume-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .resume-section-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+
+    .resume-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.25rem;
+      flex-wrap: wrap;
+    }
+
+    .resume-row .r-title {
+      font-family: var(--font-display);
+      font-size: 0.925rem;
+      font-weight: 600;
+    }
+
+    .resume-row .r-date {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+
+    .resume-sub {
+      font-size: 0.825rem;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 500;
+    }
+
+    .resume-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .resume-bullets li {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .resume-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.7rem;
+      top: 0.15em;
+    }
+
+    .resume-skills-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+
+    .resume-skills-row .r-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      min-width: 80px;
+    }
+
+    .resume-skills-row .r-val {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .edu-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .edu-card:hover {
+      border-color: var(--border-hover);
+    }
+
+    .edu-card h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-card .degree {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .edu-card .years {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.8rem;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    /* CONTACT */
+    .contact-wrap {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-wrap::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(108, 99, 255, 0.12), transparent 70%);
+    }
+
+    .contact-wrap h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .contact-wrap p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      position: relative;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border-hover);
+      color: var(--text);
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .contact-link.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .contact-link.primary:hover {
+      opacity: 0.9;
+      background: var(--accent);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 7rem 1.5rem 4rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        display: none;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .exp-card {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-wrap {
+        padding: 2.5rem 1.5rem;
+      }
+    }
+
+    /* SCROLL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">YS<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#highlights">Impact</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact" class="nav-cta">Let's Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero" id="home">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag">
+          <span class="dot"></span>
+          Open to SDE &amp; Cloud Engineering roles
+        </div>
+        <h1>
+          <span class="line-muted">Hello, I'm</span><br>
+          Yogi <span class="accent">Sainadh</span><br>
+          <span class="accent2">Thatikonda</span>
+        </h1>
+        <p class="hero-desc">
+          Software Development Engineer at Amazon building resilient AWS architectures
+          that process over <strong style="color:var(--text);">25 million events daily</strong>. I specialize in
+          high-throughput backend systems, cloud-native infrastructure, and CI/CD automation.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+            </svg>
+            Get in Touch
+          </a>
+          <a href="#resume" class="btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            View Resume
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="avatar-ring"><img src="yogi_image.png" alt="Yogi Sainadh Thatikonda"></div>
+        <h3>Yogi Sainadh Thatikonda</h3>
+        <p class="role">SDE @ Amazon Web Services · Baltimore, MD</p>
+        <div class="stat-row">
+          <div class="stat-box">
+            <span class="stat-num">25M+</span>
+            <span class="stat-label">Events / day</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">88%</span>
+            <span class="stat-label">Incident reduction</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">$7K+</span>
+            <span class="stat-label">Monthly savings</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">3+</span>
+            <span class="stat-label">Years experience</span>
+          </div>
+        </div>
+        <div class="tech-chips">
+          <span class="chip">Python</span>
+          <span class="chip">Java</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">AWS</span>
+          <span class="chip green">CDK</span>
+          <span class="chip green">Terraform</span>
+          <span class="chip">Docker</span>
+          <span class="chip green">Lambda</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-eyebrow reveal">Work Experience</p>
+    <h2 class="section-title reveal">Where I've Built</h2>
+    <p class="section-sub reveal">From enterprise DevOps pipelines to high-throughput cloud systems at AWS.</p>
+
+    <div class="exp-list">
+      <div class="exp-card reveal">
+        <div class="exp-icon amazon">☁️</div>
+        <div>
+          <div class="exp-header">
+            <span class="exp-title">Software Development Engineer</span>
+            <span class="exp-date">Jun 2025 – Present</span>
+          </div>
+          <div class="exp-company">Amazon Web Services (AWS) · Baltimore, Maryland</div>
+          <p class="exp-desc">
+            Engineering on the Sonaris Team (AWS Security), building cloud security infrastructure at global scale:
+          </p>
+          <ul class="exp-bullets">
+            <li>Architected a multi-region archiving system processing <strong>25M+ security events/day</strong>,
+              regionalizing active threat detections globally.</li>
+            <li>Built an automated ticketing & containment system for compromised AWS keys — slashing incident
+              mitigation from <strong>90 min → 10 min</strong>.</li>
+            <li>Created an <strong>AI chatbot</strong> for OnCall engineers, cutting threat triaging from 30 min to 5
+              min.</li>
+            <li>Automated global region-build infra via AWS CDK, reducing deployment timelines from <strong>1 week → 1
+                day</strong>.</li>
+            <li>Led FinOps initiative deprecating legacy threat-tracking systems — saving
+              <strong>$7,000+/month</strong>.
+            </li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">AWS CDK</span>
+            <span class="exp-tag">Python</span>
+            <span class="exp-tag">Java</span>
+            <span class="exp-tag">Lambda</span>
+            <span class="exp-tag">DynamoDB</span>
+            <span class="exp-tag">CloudWatch</span>
+            <span class="exp-tag">IAM</span>
+            <span class="exp-tag">Cloud Security</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-icon tcs">⚙️</div>
+        <div>
+          <div class="exp-header">
+            <span class="exp-title">DevOps Engineer</span>
+            <span class="exp-date">May 2022 – Jul 2023</span>
+          </div>
+          <div class="exp-company">Tata Consultancy Services · Hyderabad, India</div>
+          <p class="exp-desc">
+            Worked on the Aviva (UK insurance) account, improving cloud reliability and delivery speed:
+          </p>
+          <ul class="exp-bullets">
+            <li>FinOps audit identified unmanaged backup redundancies — lifecycle deletion policies saved
+              <strong>$6,000+/month</strong>.
+            </li>
+            <li>Automated server recovery across core environments with AWS &amp; PowerShell scripts, eliminating manual
+              steps and maximizing uptime.</li>
+            <li>Upgraded enterprise Terraform configurations to maintain compliance, security patches, and new cloud
+              features.</li>
+            <li>Engineered a dynamic Jenkins pipeline menu, removing manual static file changes from deployment flows.
+            </li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Terraform</span>
+            <span class="exp-tag">Jenkins</span>
+            <span class="exp-tag">Docker</span>
+            <span class="exp-tag">Linux</span>
+            <span class="exp-tag">CI/CD</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-icon tcs">🧑‍💻</div>
+        <div>
+          <div class="exp-header">
+            <span class="exp-title">Software Engineer Intern</span>
+            <span class="exp-date">Jan 2022 – May 2022</span>
+          </div>
+          <div class="exp-company">Tata Consultancy Services · Hyderabad, India</div>
+          <p class="exp-desc">
+            Built foundational backend services and automation tooling for the Aviva insurance platform:
+          </p>
+          <ul class="exp-bullets">
+            <li>Developed Python microservices deployed via Docker on AWS ECS for infrastructure &amp; data migrations.
+            </li>
+            <li>Authored Shell/Bash scripts to parse JSON logs, cutting troubleshooting time for dev teams by
+              <strong>20%</strong>.
+            </li>
+            <li>Configured Git branching policies and Bitbucket webhooks to enforce code-style checks in early pipeline
+              stages.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Python</span>
+            <span class="exp-tag">SQL</span>
+            <span class="exp-tag">Backend</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-icon atom">🔌</div>
+        <div>
+          <div class="exp-header">
+            <span class="exp-title">IoT Intern</span>
+            <span class="exp-date">Oct 2020 – Nov 2020</span>
+          </div>
+          <div class="exp-company">ATOM Software Solutions · Hyderabad, India</div>
+          <p class="exp-desc">
+            Worked on IoT sensor integration and data collection pipelines, building early foundations in
+            hardware-software
+            interfacing and embedded systems workflows.
+          </p>
+          <div class="exp-tags">
+            <span class="exp-tag">IoT</span>
+            <span class="exp-tag">Embedded Systems</span>
+            <span class="exp-tag">Python</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section id="highlights">
+    <p class="section-eyebrow reveal">Key Impact</p>
+    <h2 class="section-title reveal">Engineering Highlights</h2>
+    <p class="section-sub reveal">Measurable outcomes from real-world production systems.</p>
+
+    <div class="highlights-grid">
+      <div class="highlight-card reveal">
+        <span class="highlight-icon">☁️</span>
+        <span class="highlight-num">25M+</span>
+        <h4>Events Processed Daily</h4>
+        <p>Engineered resilient AWS architectures with high availability guarantees, handling massive event throughput
+          at scale.</p>
+      </div>
+      <div class="highlight-card reveal">
+        <span class="highlight-icon">⚡</span>
+        <span class="highlight-num teal">88%</span>
+        <h4>Incident Containment Speed</h4>
+        <p>Developed AI-powered troubleshooting tools and automated remediation frameworks that drastically cut critical
+          incident response time.</p>
+      </div>
+      <div class="highlight-card reveal">
+        <span class="highlight-icon">💰</span>
+        <span class="highlight-num">$7K+</span>
+        <h4>Monthly Cost Savings</h4>
+        <p>Led cross-functional FinOps initiatives to deprecate legacy infrastructure and generate ongoing operational
+          savings.</p>
+      </div>
+      <div class="highlight-card reveal">
+        <span class="highlight-icon">🚀</span>
+        <span class="highlight-num teal">IaC</span>
+        <h4>Infrastructure as Code</h4>
+        <p>Deep expertise in AWS CDK and Terraform for deploying production-grade, version-controlled cloud
+          infrastructure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-eyebrow reveal">Projects</p>
+    <h2 class="section-title reveal">Things I've Built</h2>
+    <p class="section-sub reveal">Academic and personal projects that explore systems, hardware, and algorithms.</p>
+
+    <div class="projects-grid">
+      <div class="project-card purple reveal">
+        <div class="project-header">
+          <span class="project-emoji">🧠</span>
+          <div>
+            <h3>Memory Hierarchy Simulator</h3>
+            <p class="proj-type">Systems / Computer Architecture</p>
+          </div>
+        </div>
+        <ul class="project-bullets">
+          <li>Simulates virtual-to-physical address translation and multi-level cache behavior including DTLB, data
+            cache, and L2 cache configurations.</li>
+          <li>Implemented LRU replacement algorithms and varying write policies to analyze hit/miss ratios and disk
+            access statistics.</li>
+          <li>Provides detailed performance metrics to study the trade-offs of cache design decisions.</li>
+        </ul>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Computer Architecture</span>
+          <span class="stack-tag">Cache Design</span>
+          <span class="stack-tag">LRU Algorithm</span>
+        </div>
+      </div>
+
+      <div class="project-card teal reveal">
+        <div class="project-header">
+          <span class="project-emoji">🚦</span>
+          <div>
+            <h3>Density-based Traffic Control System</h3>
+            <p class="proj-type">IoT / Embedded Systems</p>
+          </div>
+        </div>
+        <ul class="project-bullets">
+          <li>Architected an IoT traffic control system that dynamically adjusts signal timing based on real-time
+            traffic density instead of a fixed timer.</li>
+          <li>Processed IR hardware sensor feeds via Arduino IDE to drive adaptive signal logic — reducing unnecessary
+            wait times in low-density lanes.</li>
+          <li>Integrated NodeMCU for wireless data transmission between sensors and the control unit.</li>
+        </ul>
+        <div class="project-stack">
+          <span class="stack-tag teal">C</span>
+          <span class="stack-tag teal">Arduino IDE</span>
+          <span class="stack-tag teal">NodeMCU</span>
+          <span class="stack-tag teal">IR Sensors</span>
+          <span class="stack-tag teal">IoT</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-eyebrow reveal">Technical Skills</p>
+    <h2 class="section-title reveal">My Toolkit</h2>
+    <p class="section-sub reveal">Languages, platforms, and tools I work with daily.</p>
+
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <h4>Languages</h4>
+        <div class="skill-pills">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">TypeScript</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">Bash / Shell</span>
+          <span class="skill-pill">PowerShell</span>
+          <span class="skill-pill">C</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Cloud &amp; AWS Services</h4>
+        <div class="skill-pills">
+          <span class="skill-pill">AWS (CCP)</span>
+          <span class="skill-pill">AWS CDK</span>
+          <span class="skill-pill">Lambda</span>
+          <span class="skill-pill">DynamoDB</span>
+          <span class="skill-pill">ECS</span>
+          <span class="skill-pill">S3</span>
+          <span class="skill-pill">IAM</span>
+          <span class="skill-pill">CloudWatch</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>DevOps &amp; Infrastructure</h4>
+        <div class="skill-pills">
+          <span class="skill-pill">Terraform</span>
+          <span class="skill-pill">Docker</span>
+          <span class="skill-pill">Jenkins</span>
+          <span class="skill-pill">Git / Bitbucket</span>
+          <span class="skill-pill">Linux / Unix</span>
+          <span class="skill-pill">Systems Manager</span>
+          <span class="skill-pill">Jira</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Certifications</h4>
+        <div class="skill-pills">
+          <span class="skill-pill">AWS Cloud Practitioner</span>
+          <span class="skill-pill">ServiceNow SysAdmin</span>
+          <span class="skill-pill">Python — HackerRank</span>
+          <span class="skill-pill">Statistics w/ Python</span>
+          <span class="skill-pill">Problem Solving — HR</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <p class="section-eyebrow reveal">Education</p>
+    <h2 class="section-title reveal">Academic Background</h2>
+    <p class="section-sub reveal">Built a strong foundation in Computer Science across two continents.</p>
+
+    <div class="edu-list">
+      <div class="edu-card reveal">
+        <div>
+          <h4>Florida State University</h4>
+          <p class="degree">Master's in Computer Science</p>
+        </div>
+        <span class="years">Aug 2023 – May 2025</span>
+      </div>
+      <div class="edu-card reveal">
+        <div>
+          <h4>KL University</h4>
+          <p class="degree">B.Tech in Computer Science</p>
+        </div>
+        <span class="years">Aug 2018 – May 2022</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <p class="section-eyebrow reveal">Resume</p>
+    <h2 class="section-title reveal">Full Resume</h2>
+    <p class="section-sub reveal">A snapshot of my experience, skills, and education — all in one place.</p>
+
+    <div class="resume-wrap reveal">
+      <div class="resume-header">
+        <div>
+          <h3>Yogi Sainadh Thatikonda</h3>
+          <p>SDE · Cloud Security · Distributed Systems · Baltimore, MD</p>
+        </div>
+        <div class="resume-actions">
+          <a href="mailto:yogisainadht@gmail.com" class="btn-outline"
+            style="padding:0.55rem 1.2rem; font-size:0.85rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            Email
+          </a>
+          <a href="https://github.com/Tyogi" target="_blank" class="btn-outline"
+            style="padding:0.55rem 1.2rem; font-size:0.85rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+            </svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/yogisainadht" target="_blank" class="btn-primary"
+            style="padding:0.55rem 1.2rem; font-size:0.85rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="resume-body">
+
+        <div class="resume-section">
+          <p class="resume-section-title">Experience</p>
+
+          <div class="resume-row">
+            <span class="r-title">Amazon — Sonaris Team (AWS Security)</span>
+            <span class="r-date">Jun 2025 – Present</span>
+          </div>
+          <p class="resume-sub">Software Development Engineer · Baltimore, MD</p>
+          <ul class="resume-bullets">
+            <li>Engineered a high-throughput, multi-region archiving system processing 25M+ security events/day
+              globally.</li>
+            <li>Automated ticketing & containment for compromised AWS keys — slashing mitigation from 90 min → 10 min.
+            </li>
+            <li>Created an AI chatbot for OnCall engineers, reducing threat triaging from 30 min → 5 min.</li>
+            <li>Automated global region-build infra via AWS CDK, cutting deployment timelines from 1 week → 1 day.</li>
+            <li>Led FinOps initiative deprecating legacy threat-tracking systems — saving $7,000+/month.</li>
+            <li>Authored core engineering runbooks for Large-Scale Events (LSE) and key compromise triaging.</li>
+          </ul>
+
+          <div class="resume-row">
+            <span class="r-title">Tata Consultancy Services — Aviva Team</span>
+            <span class="r-date">May 2022 – Jul 2023</span>
+          </div>
+          <p class="resume-sub">DevOps Engineer · Hyderabad, India</p>
+          <ul class="resume-bullets">
+            <li>FinOps audit surfaced unmanaged backup redundancies; lifecycle policies saved $6,000+/month.</li>
+            <li>Automated server recovery with AWS & PowerShell scripts, eliminating manual intervention steps.</li>
+            <li>Upgraded enterprise Terraform configs to enforce security patches and leverage new AWS features.</li>
+            <li>Engineered a dynamic Jenkins pipeline selection menu, removing manual static file modifications.</li>
+          </ul>
+
+          <div class="resume-row">
+            <span class="r-title">Tata Consultancy Services — Aviva Team</span>
+            <span class="r-date">Jan 2022 – May 2022</span>
+          </div>
+          <p class="resume-sub">Software Engineer Intern · Hyderabad, India</p>
+          <ul class="resume-bullets">
+            <li>Developed Python microservices deployed via Docker on AWS ECS for infrastructure & data migrations.</li>
+            <li>Authored Shell/Bash scripts to parse JSON logs, reducing troubleshooting time by 20%.</li>
+            <li>Configured Git branching policies and Bitbucket webhooks to enforce code-style checks early in pipeline.
+            </li>
+          </ul>
+        </div>
+
+        <div class="resume-section">
+          <p class="resume-section-title">Technical Skills</p>
+          <div class="resume-skills-row">
+            <span class="r-label">Languages</span>
+            <span class="r-val">Python, Java, TypeScript, SQL, Bash/PowerShell, C, HTML/CSS</span>
+          </div>
+          <div class="resume-skills-row">
+            <span class="r-label">Cloud / AWS</span>
+            <span class="r-val">AWS CDK, Terraform, IAM, CloudWatch, S3, Lambda, DynamoDB, ECS</span>
+          </div>
+          <div class="resume-skills-row">
+            <span class="r-label">Dev Tools</span>
+            <span class="r-val">Git, Bitbucket, Jenkins, Docker, Jira, Linux/Unix, Systems Manager</span>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <p class="resume-section-title">Education</p>
+          <div class="resume-row">
+            <span class="r-title">Florida State University</span>
+            <span class="r-date">Aug 2023 – May 2025</span>
+          </div>
+          <p class="resume-sub" style="margin-bottom:0.75rem;">M.S. in Computer Science · Tallahassee, FL</p>
+          <div class="resume-row">
+            <span class="r-title">Koneru Lakshmaiah University</span>
+            <span class="r-date">Aug 2018 – May 2022</span>
+          </div>
+          <p class="resume-sub" style="margin-bottom:0;">B.Tech in Computer Science & Engineering · Andhra Pradesh,
+            India</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="border-bottom: 1px solid var(--border);">
+    <div class="contact-wrap reveal">
+      <h2>Let's build something great.</h2>
+      <p>I'm actively seeking SDE and Cloud Engineering roles. Open to full-time opportunities and interesting
+        conversations.</p>
+      <div class="contact-links">
+        <a href="mailto:yogisainadht@gmail.com" class="contact-link primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          yogisainadht@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/yogisainadh" target="_blank" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/Tyogi" target="_blank" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Yogi Sainadh Thatikonda · <a href="mailto:yogisainadht@gmail.com">yogisainadht@gmail.com</a> · <a
+        href="https://github.com/Tyogi" target="_blank">github.com/Tyogi</a></p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => io.observe(el));
+  </script>
+
+</body>
+
+</html>
